@@ -1,78 +1,148 @@
 package ru.netology.stats;
+
 public class StatsService {
 
-
-
-    // Сумму всех продаж.
-    public int summAllSale() {
-
-
+    //============================================================================================================
+    //ОК 1. Сумму всех продаж.
+    public int getSummSale(int[] month) {
         //вычисление
-        int summAllSale = 0;
+        int summSale = 0;
+        for (int i = 0; i < month.length; i++) {
+            summSale = summSale + month[i];
+        }
+        //функция возвращает Сумму всех продаж.
+        return summSale;
+    }
 
-        //функция возвращает
-        return summAllSale;
+    //============================================================================================================
+    //ОК 2. Среднюю сумму продаж в месяц.
+    public int getAveregeSaleMonth(int[] month) {
+        //вычисление
+        int averegeSaleMonth = 0;
+        int summSale = 0;
+        for (int i = 0; i < month.length; i++) {
+            summSale = summSale + month[i];
+        }
+        averegeSaleMonth = summSale / month.length; // Суммма продаж / количество месяцев=длинна массива
+        //функция возвращает Среднюю сумму продаж в месяц.
+        return averegeSaleMonth;
     }
 
 
 
-    // Среднюю сумму продаж в месяц.
-    public int averageSummSaleMonth() {
+    //============================================================================================================
+    //ОК 3. Номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму*.
+    public int getMonthMaxSale(int[] month) {
         //вычисление
-        int averageSummSaleMonth = 0;
-
-
-        //функция возвращает
-        return averageSummSaleMonth;
+        int monthMaxSale = 0;
+        for (int i=0; i<month.length;i++){
+            if (month[i]>=month[monthMaxSale]){
+                monthMaxSale=i;
+            }
+        }
+        return monthMaxSale;
     }
 
 
 
-    // Номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму*.
-    public int numberMonthMaxSale() {
+    //============================================================================================================
+    //ОК 4. Номер месяца, в котором был минимум продаж, то есть осуществлены продажи на минимальную сумму*.
+    public int getMonthMinSale(int[] month) {
         //вычисление
-        int numberMonthMaxSale = 0;
-
-
-        //функция возвращает
-        return numberMonthMaxSale;
+        int monthMinSale = 0;
+        for (int i=0; i<month.length;i++){
+            if (month[i]<=month[monthMinSale]){
+                monthMinSale=i;
+            }
+        }
+        return monthMinSale;
     }
 
 
 
-    // Номер месяца, в котором был минимум продаж, то есть осуществлены продажи на минимальную сумму*.
-    public int numberMonthMinSale() {
+
+    //============================================================================================================
+    //ОК 5. Количество месяцев, в которых продажи были ниже среднего (см. п.2).
+    public int getNumOfMonthSaleBelowAverage(int[] month) {
         //вычисление
-        int numberMonthMinSale = 0;
+        int numOfMonthSaleBelowAverage = 0;
 
-
-
-        //функция возвращает
-        return numberMonthMinSale;
+        for (int i=0; i<month.length;i++){
+            if (month[i]<getAveregeSaleMonth(month)){
+                numOfMonthSaleBelowAverage  = numOfMonthSaleBelowAverage + 1;
+            }
+        }
+        return numOfMonthSaleBelowAverage;
     }
 
 
 
-    // Количество месяцев, в которых продажи были ниже среднего (см. п.2).
-    public int quantityMonthSaleDownAverege() {
+    //============================================================================================================
+    //ОК 5. Количество месяцев, в которых продажи были ниже среднего (см. п.2).
+    public int getNumOfMonthSaleAboveAverage(int[] month) {
         //вычисление
-        int quantityMonthSaleMinAverege = 0;
+        int numOfMonthSaleAboveAverage = 0;
 
-
-        //функция возвращает
-        return quantityMonthSaleMinAverege;
+        for (int i=0; i<month.length;i++){
+            if (month[i]>getAveregeSaleMonth(month)){
+                numOfMonthSaleAboveAverage  = numOfMonthSaleAboveAverage + 1;
+            }
+        }
+        return numOfMonthSaleAboveAverage;
     }
 
 
 
-    // Количество месяцев, в которых продажи были выше среднего (см. п.2).
-    public int quantityMonthSaleUpAverege() {
-        //вычисление
-        int quantityMonthSaleUpAverege = 0;
 
 
-        //функция возвращает
-        return quantityMonthSaleUpAverege;
-    }
+
+
+
+//============================================================================================================
+//
+//
+//    // Номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму*.
+//    public int numberMonthMaxSale() {
+//        //вычисление
+//        int monthMax = 0;
+//        int numberMonthMaxSale = 0;
+//
+//
+//        //функция возвращает
+//        return numberMonthMaxSale;
+//    }
+//
+//
+//    // Номер месяца, в котором был минимум продаж, то есть осуществлены продажи на минимальную сумму*.
+//    public int numberMonthMinSale() {
+//        //вычисление
+//        int numberMonthMinSale = 0;
+//
+//
+//        //функция возвращает
+//        return numberMonthMinSale;
+//    }
+//
+//
+//    // Количество месяцев, в которых продажи были ниже среднего (см. п.2).
+//    public int quantityMonthSaleDownAverege() {
+//        //вычисление
+//        int quantityMonthSaleMinAverege = 0;
+//
+//
+//        //функция возвращает
+//        return quantityMonthSaleMinAverege;
+//    }
+//
+//
+//    // Количество месяцев, в которых продажи были выше среднего (см. п.2).
+//    public int quantityMonthSaleUpAverege() {
+//        //вычисление
+//        int quantityMonthSaleUpAverege = 0;
+//
+//
+//        //функция возвращает
+//        return quantityMonthSaleUpAverege;
+//    }
 
 }
