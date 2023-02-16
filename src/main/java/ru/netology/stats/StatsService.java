@@ -29,20 +29,18 @@ public class StatsService {
     }
 
 
-
     //============================================================================================================
     //ОК 3. Номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму*.
     public int getMonthMaxSale(int[] month) {
         //вычисление
         int monthMaxSale = 0;
-        for (int i=0; i<month.length;i++){
-            if (month[i]>=month[monthMaxSale]){
-                monthMaxSale=i;
+        for (int i = 0; i < month.length; i++) {
+            if (month[i] >= month[monthMaxSale]) {
+                monthMaxSale = i;
             }
         }
         return monthMaxSale;
     }
-
 
 
     //============================================================================================================
@@ -50,15 +48,13 @@ public class StatsService {
     public int getMonthMinSale(int[] month) {
         //вычисление
         int monthMinSale = 0;
-        for (int i=0; i<month.length;i++){
-            if (month[i]<=month[monthMinSale]){
-                monthMinSale=i;
+        for (int i = 0; i < month.length; i++) {
+            if (month[i] <= month[monthMinSale]) {
+                monthMinSale = i;
             }
         }
         return monthMinSale;
     }
-
-
 
 
     //============================================================================================================
@@ -67,14 +63,13 @@ public class StatsService {
         //вычисление
         int numOfMonthSaleBelowAverage = 0;
 
-        for (int i=0; i<month.length;i++){
-            if (month[i]<getAveregeSaleMonth(month)){
-                numOfMonthSaleBelowAverage  = numOfMonthSaleBelowAverage + 1;
+        for (int i = 0; i < month.length; i++) {
+            if (month[i] < getAveregeSaleMonth(month)) {
+                numOfMonthSaleBelowAverage = numOfMonthSaleBelowAverage + 1;
             }
         }
         return numOfMonthSaleBelowAverage;
     }
-
 
 
     //============================================================================================================
@@ -83,19 +78,13 @@ public class StatsService {
         //вычисление
         int numOfMonthSaleAboveAverage = 0;
 
-        for (int i=0; i<month.length;i++){
-            if (month[i]>getAveregeSaleMonth(month)){
-                numOfMonthSaleAboveAverage  = numOfMonthSaleAboveAverage + 1;
+        for (int i = 0; i < month.length; i++) {
+            if (month[i] > getAveregeSaleMonth(month)) {
+                numOfMonthSaleAboveAverage = numOfMonthSaleAboveAverage + 1;
             }
         }
         return numOfMonthSaleAboveAverage;
     }
-
-
-
-
-
-
 
 
 //============================================================================================================

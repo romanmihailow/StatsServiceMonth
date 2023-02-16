@@ -7,7 +7,7 @@ public class Main {
 
         //int[] arr = new int[12];
         int[] month = {
-            8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18
+                8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18
         };
 
 
@@ -18,9 +18,6 @@ public class Main {
         int monthMinSale = service.getMonthMinSale(month) + 1;
         int numOfMonthSaleBelowAverage = service.getNumOfMonthSaleBelowAverage(month);
         int numOfMonthSaleAboveAverage = service.getNumOfMonthSaleAboveAverage(month);
-
-
-
 
 
         //arr[3] = 11;
